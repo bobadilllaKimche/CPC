@@ -146,14 +146,13 @@ export default class Platform extends Component {
             height={height}
             width={width}
           />
-          {actual > -1 ?
+          {actual > -1 &&
             <ModalMap
               actualModal={actualModal}
               visible={modal}
               hideModal={() => this.setState({ modal: !this.state.modal, actual: -1 })}
               width={width}
             />
-            : null
           }
           <GoogleMap
             bootstrapURLKeys={{

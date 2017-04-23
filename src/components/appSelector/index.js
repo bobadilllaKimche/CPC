@@ -3,6 +3,7 @@ import { Grid, Col, Button, Image, Collapse, Row } from 'react-bootstrap';
 import renderIf from 'render-if';
 import pdf from '../../FTP-CPC.pdf';
 
+import ModalIniciativa from './modal.js';
 import ModalYoutube from '../youtube';
 
 import imgUrl from '../../img/fondosearch.png';
@@ -13,8 +14,6 @@ import masInfo from '../../img/botonmasinfo.png';
 
 import Colors from '../../styles';
 import FaPlay from 'react-icons/lib/fa/play';
-
-// TODO: agregar nueva imagen de logo #AppSelector
 
 export default class AppSelector extends Component {
 
@@ -33,6 +32,7 @@ export default class AppSelector extends Component {
     this.state = {
       timer: false,
       openVideo: false,
+      iniciativaModal: false,
     };
   }
 
@@ -41,7 +41,7 @@ export default class AppSelector extends Component {
   }
 
   render() {
-    const { openVideo } = this.state;
+    const { openVideo, iniciativaModal } = this.state;
     const { width, height } = this.props;
     const container = {
       backgroundImage: `url(${imgUrl})`,
@@ -54,7 +54,7 @@ export default class AppSelector extends Component {
     if (width > 993) {
       return (
         <Grid fluid style={container}>
-          <Col mdOffset={2} md={8} xsOffset={1} xs={10} stle={styles.vertical}>
+          <Col mdOffset={1} md={10} >
             <center>
               <Row>
                 {renderIf(this.state.timer)(
@@ -77,13 +77,13 @@ export default class AppSelector extends Component {
                   </Col>
                 )}
                 <Col md={this.state.timer ? 6 : 12}>
-                  <Image src={imgLogo} style={{ maxHeight: height * 0.5, marginLeft: this.state.timer ? '16%' : '8%' }} responsive className="animated fadeInDown" />
+                  <Image src={imgLogo} style={{ maxHeight: height * 0.5, marginLeft: this.state.timer ? '14%' : '7%' }} responsive className="animated fadeInDown" />
                 </Col>
                 {renderIf(this.state.timer)(
                   <Col md={3} style={{ padding: 0 }} >
                     <div className="animated fadeInLeft" style={styles.lateralLogo}>
                       <center >
-                        <Image src={imgDerecha} style={styles.imageBoton} onClick={() => window.open(pdf)} />
+                        <Image src={imgDerecha} style={styles.imageBoton} onClick={() => this.setState({ iniciativaModal: true })} />
                       </center>
                       <h4 style={styles.iconName}>Iniciativas del Sector Privado</h4>
                       <Image src={masInfo} style={styles.imageBotonInfo} onClick={() => this.setState({ openEA: !this.state.openEA })} />
@@ -98,7 +98,9 @@ export default class AppSelector extends Component {
               </Row>
             </center>
             <ModalYoutube show={openVideo} close={() => this.setState({ openVideo: false })} onEndYoutube={() => this.setState({ openVideo: false })} />
+            <ModalIniciativa show={iniciativaModal} close={() => this.setState({ iniciativaModal: false })} />
           </Col>
+          {}
         </Grid>
       );
     } else {

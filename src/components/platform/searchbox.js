@@ -4,7 +4,6 @@ import ReactDOM from 'react-dom';
 // import { newList } from './data/listEducation';
 
 // TODO: limitar a chile #searchbox
-// TODO: eliminar borde azul en actve de ubicacion #searchbox
 
 export default class SearchBox extends Component {
   static propTypes = {

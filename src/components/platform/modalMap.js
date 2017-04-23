@@ -449,7 +449,7 @@ export default class ModalMap extends Component {
           }
           <Image src={imgPatron} responsive />
           <Modal.Footer>
-            <Col style={styles.modalFooterTitulacion} sm={12} >
+            <Col style={styles.modalFooterTitulacion} xs={12} >
               {actualModal.tasaTitulacion &&
                 <Col>
                   <p style={styles.tasa}>Tasa de Titulación 2016</p>
@@ -460,7 +460,7 @@ export default class ModalMap extends Component {
                 </Col>
               }
             </Col>
-            <Col sm={12}>
+            <Col xs={12}>
               <div>
                 <p style={styles.tasa}>Resultados Simce</p>
                 <p style={styles.tasaText2}>
@@ -470,15 +470,15 @@ export default class ModalMap extends Component {
                 </p>
               </div>
             </Col>
-            <Col style={styles.modalFooterButtons} sm={12}>
+            <Col style={styles.modalFooterButtons} xs={12}>
               {actualModal.empresas &&
-                <Col sm={6} style={{ flexDirection: 'row', display: 'flex', cursor: 'pointer' }} onClick={() => this.refs.slider.slickGoTo(1)} onMouseLeave={() => this.setState({ vinculo: false })} onMouseEnter={() => this.setState({ vinculo: true })}>
+                <Col xs={6} style={{ flexDirection: 'row', display: 'flex', cursor: 'pointer' }} onClick={() => this.refs.slider.slickGoTo(1)} onMouseLeave={() => this.setState({ vinculo: false })} onMouseEnter={() => this.setState({ vinculo: true })}>
                   <Image src={!vinculo ? imgVinculo : imgVinculoHover} style={styles.footerImages2} />
                   <p style={styles.footerText} >Vínculo Empresarial</p>
                 </Col>
               }
               {actualModal.consejo && actualModal.consejo.includes('http') ?
-                <Col sm={6} onMouseLeave={() => this.setState({ consejo: false })} onMouseEnter={() => this.setState({ consejo: true })}>
+                <Col xs={6} onMouseLeave={() => this.setState({ consejo: false })} onMouseEnter={() => this.setState({ consejo: true })}>
                   <a href={actualModal.consejo} target="_blank" style={{ flexDirection: 'row', display: 'flex', cursor: 'pointer', textDecoration: 'none' }} >
                     <Image src={!consejo ? imgConsejo : imgConsejoHover} style={styles.footerImages2} />
                     <p style={styles.footerText} >Consejo Asesor Empresarial</p>
@@ -486,7 +486,7 @@ export default class ModalMap extends Component {
                 </Col>
                 :
                 <OverlayTrigger trigger="click" rootClose placement="top" overlay={this.openConsejoSi()}>
-                  <Col sm={6} style={{ flexDirection: 'row', display: 'flex', cursor: 'pointer' }} onMouseLeave={() => this.setState({ consejo: false })} onMouseEnter={() => this.setState({ consejo: true })}>
+                  <Col xs={6} style={{ flexDirection: 'row', display: 'flex', cursor: 'pointer' }} onMouseLeave={() => this.setState({ consejo: false })} onMouseEnter={() => this.setState({ consejo: true })}>
                     <Image src={!consejo ? imgConsejo : imgConsejoHover} style={styles.footerImages2} />
                     <p style={styles.footerText} >Consejo Asesor Empresarial</p>
                   </Col>
