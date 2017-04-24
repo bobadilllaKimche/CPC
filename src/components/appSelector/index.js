@@ -54,7 +54,7 @@ export default class AppSelector extends Component {
     if (width > 993) {
       return (
         <Grid fluid style={container}>
-          <Col mdOffset={1} md={10} >
+          <Col mdOffset={2} md={8} xsOffset={1} xs={10} stle={styles.vertical}>
             <center>
               <Row>
                 {renderIf(this.state.timer)(
@@ -97,10 +97,9 @@ export default class AppSelector extends Component {
                 )}
               </Row>
             </center>
-            <ModalYoutube show={openVideo} close={() => this.setState({ openVideo: false })} onEndYoutube={() => this.setState({ openVideo: false })} />
-            <ModalIniciativa show={iniciativaModal} close={() => this.setState({ iniciativaModal: false })} />
           </Col>
-          {}
+          <ModalYoutube show={openVideo} close={() => this.setState({ openVideo: false })} onEndYoutube={() => this.setState({ openVideo: false })} />
+          <ModalIniciativa show={iniciativaModal} close={() => this.setState({ iniciativaModal: false })} />
         </Grid>
       );
     } else {

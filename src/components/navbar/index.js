@@ -29,7 +29,7 @@ export default class Main extends Component {
     const { openVideo } = this.state;
     return (
       <Navbar collapseOnSelect style={styles.container} collapseOnSelect>
-        <Col md={10} mdOffset={1} style={{ paddingLeft: 0, paddingRight: 0 }}>
+        <Col style={{ paddingLeft: 0, paddingRight: 0 }}>
           <Navbar.Header style={{ padding: '25 important', cursor: 'pointer' }} >
             <Image src={imgLogo} style={styles.logoSmall} onClick={() => this.props.router.push('/')} />
             <Navbar.Toggle />
