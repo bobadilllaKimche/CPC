@@ -11,6 +11,7 @@ export default class Main extends Component {
       children: React.PropTypes.object,
       router: PropTypes.object,
       renderChildren: PropTypes.object,
+      width: PropTypes.number,
     };
   }
 
@@ -38,7 +39,7 @@ export default class Main extends Component {
     return (
       <div>
         <NavBar title={title} {...props} path={route} width={width} />
-        <div style={{ minHeight: height - 60 - 110 }}>
+        <div style={{ minHeight: height - 110 }}>
           {React.Children.map(this.props.children, (child) => React.cloneElement(child, { height, width })) || <AppSelector router={this.props.router} width={width} height={height} />}
         </div>
         <Footer title={title} {...props} path={route} width={width} />

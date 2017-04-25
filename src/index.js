@@ -4,14 +4,13 @@ import { Router, Route, browserHistory } from 'react-router';
 
 import ReactGA from 'react-ga';
 ReactGA.initialize('UA-97048045-01', {
-  debug: true,
+  // debug: true,
 });
 
 import Main from './components/main';
 import Platform from './components/platform';
 
 // TODO: Arreglar warnings #warnings
-// TODO: minheight responsive
 
 function logPageView() {
   ReactGA.set({ page: window.location.pathname });

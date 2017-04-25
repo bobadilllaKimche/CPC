@@ -14,15 +14,13 @@ import masInfo from '../../img/botonmasinfo.png';
 import Colors from '../../styles';
 import FaPlay from 'react-icons/lib/fa/play';
 
-// TODO: agregar nueva imagen de logo #AppSelector
-
 export default class AppSelector extends Component {
 
   static get propTypes() {
     return {
       router: PropTypes.object,
-      width: PropTypes.int,
-      height: PropTypes.int,
+      width: PropTypes.number,
+      height: PropTypes.number,
     };
   }
 
@@ -45,7 +43,7 @@ export default class AppSelector extends Component {
     const { width, height } = this.props;
     const container = {
       backgroundImage: `url(${imgUrl})`,
-      minHeight: height - 60 - 110,
+      minHeight: height - 110,
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       alignItems: 'center',
@@ -54,11 +52,11 @@ export default class AppSelector extends Component {
     if (width > 993) {
       return (
         <Grid fluid style={container}>
-          <Col mdOffset={2} md={8} xsOffset={1} xs={10} stle={styles.vertical}>
+          <Col mdOffset={2} md={8} xsOffset={1} xs={10} >
             <center>
               <Row>
                 {renderIf(this.state.timer)(
-                  <Col md={3} style={{ padding: 0 }} >
+                  <Col md={3} xs style={{ padding: 0 }} >
                     <div className="animated fadeInRight" style={styles.lateralLogo} >
                       <center>
                         <Image src={imgIzquierda} style={styles.imageBoton} onClick={() => this.props.router.push('plataforma')} />
@@ -142,19 +140,6 @@ export default class AppSelector extends Component {
 }
 
 const styles = {
-  container: {
-    backgroundImage: `url(${imgUrl})`,
-    minHeight: window.innerHeight - 60 - 110,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    alignItems: 'center',
-    display: 'flex',
-  },
-  vertical: {
-    width: '100%',
-    textAlign: 'center',
-    verticalAlign: 'middle',
-  },
   imageBotonInfo: {
     cursor: 'pointer',
     height: 40,

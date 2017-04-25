@@ -45,16 +45,14 @@ export default class Footer extends Component {
       router: PropTypes.object,
       location: PropTypes.object,
       title: PropTypes.string,
-      width: PropTypes.int,
+      width: PropTypes.number,
     };
   }
 
   constructor(props) {
     super(props);
     this.state = {
-
     };
-    this.renderImage = this.renderImage.bind(this);
   }
 
   renderImage() {
@@ -62,14 +60,14 @@ export default class Footer extends Component {
     if (width > 993) {
       return images.map((item, key) => (
         <a target="_blank" href={item.link} style={{ marginLeft: '2%', textDecoration: 'none' }} key={key}>
-          <Image src={item.image} style={styles.images} />
+          <Image src={item.image} style={{ marginTop: 10, height: 50, textAlign: 'center' }} />
         </a>
     )); } else {
       return images.map((item, key) => (
         <Col xs={4}>
           <center>
             <a target="_blank" href={item.link} style={{ textDecoration: 'none' }} key={key}>
-              <Image src={item.image} style={styles.imagesResponsive} />
+              <Image src={item.image} style={{ marginTop: 10, height: 30, marginBottom: 10 }} />
             </a>
           </center>
         </Col>
@@ -79,55 +77,35 @@ export default class Footer extends Component {
 
   render() {
     const { width } = this.props;
-    if (width > 993) {
-      return (
-        <Grid style={styles.container} fluid>
-          <Col xs={12} md={3} mdOffset={1}>
-            <a target="_blank"href={'http://www.cpc.cl/'}>
+    return (
+      <Grid style={{ backgroundColor: Colors.PURPLE, color: 'white', padding: 15, paddingBottom: width > 903 ? 15 : 40 }} fluid>
+        <Col xs={12} sm={3} smOffset={1}>
+          <a target="_blank"href={'http://www.cpc.cl/'}>
+            {width > 993 ?
               <Image src={imgCPC} style={styles.imagesCPC} />
-            </a>
-          </Col>
-          <Col md={7} style={styles.renderImage}>
-            {this.renderImage()}
-          </Col>
-        </Grid>
-      );
-    } else {
-      return (
-        <Grid style={styles.containerResponsive} fluid>
-          <Col xs={12} style={{ verticalAlign: 'middle', fontSize: 11, padding: 0 }}>
-            <a target="_blank" href={'http://www.cpc.cl/'}>
+              :
               <center>
                 <Image src={imgCPC} style={{ marginTop: 20, marginBottom: 15, height: 50 }} />
               </center>
-            </a>
+            }
+          </a>
+        </Col>
+        {width > 993 ?
+          <Col sm={7} style={{ justifyContent: 'flex-end', display: 'flex' }}>
+            {this.renderImage()}
           </Col>
-          {this.renderImage()}
-        </Grid>
-      );
-    }
+          :
+          this.renderImage()
+        }
+      </Grid>
+    );
   }
 }
 
 const styles = {
-  container: {
-    backgroundColor: Colors.PURPLE,
-    color: 'white',
-    padding: 15,
-  },
-  containerResponsive: {
-    backgroundColor: Colors.PURPLE,
-    color: 'white',
-    paddingBottom: 40,
-  },
   imagesCPC: {
     height: 80,
     width: 'auto',
-  },
-  renderImage: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'flex-end',
   },
   images: {
     marginTop: 10,

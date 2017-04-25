@@ -24,8 +24,8 @@ export default class Platform extends Component {
 
   static propTypes = {
     zoom: PropTypes.number,
-    width: PropTypes.int,
-    height: PropTypes.int,
+    width: PropTypes.number,
+    height: PropTypes.number,
   };
 
   static defaultProps= {
@@ -128,7 +128,7 @@ export default class Platform extends Component {
     const { height, width } = this.props;
     if (width > 993) {
       return (
-        <div style={{ height: height - 60 - 110 }}>
+        <div style={{ height: height - 110 }}>
           <NavBar
             getSector={selected => this.setState({ filterSector: selected }, this.filter(selected, 1))}
             getEmpleabilidad={selected => {

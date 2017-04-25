@@ -13,7 +13,7 @@ export default class Main extends Component {
       router: PropTypes.object,
       location: PropTypes.object,
       title: PropTypes.string,
-      width: PropTypes.int,
+      width: PropTypes.number,
     };
   }
 
@@ -28,34 +28,24 @@ export default class Main extends Component {
     const { location, width } = this.props;
     const { openVideo } = this.state;
     return (
-      <Navbar collapseOnSelect style={styles.container} collapseOnSelect>
-        <Col md={10} mdOffset={1} style={{ paddingLeft: 0, paddingRight: 0 }}>
-          <Navbar.Header style={{ padding: '25 important', cursor: 'pointer' }} >
+      <Navbar collapseOnSelect fixedTop fluid>
+        <Col sm={10} smOffset={1}>
+          <Navbar.Header style={{ cursor: 'pointer' }} >
             <Image src={imgLogo} style={styles.logoSmall} onClick={() => this.props.router.push('/')} />
             <Navbar.Toggle />
           </Navbar.Header>
-          {width > 767 ?
-            <Navbar.Collapse>
-              <Nav>
-                <NavItem style={styles.navItem} onClick={() => this.props.router.push('plataforma')} active={location.pathname === '/plataforma' || location.pathname === 'plataforma'}>Liceos de Educación Técnica Profesional (ETP)</NavItem>
-                <NavItem style={styles.navItem} onClick={() => window.open(pdf)}>
-                  Iniciativas del Sector Privado
-                </NavItem>
-              </Nav>
-              <Nav pullRight>
-                {window.innerWidth < 700 ? null : <span style={styles.tutorial} />}
-                <NavItem onClick={() => this.setState({ openVideo: true })} >Tutorial</NavItem>
-              </Nav>
-            </Navbar.Collapse>
-            :
-            <Navbar.Collapse>
-              <Nav>
-                <NavItem style={styles.navItem} onClick={() => this.props.router.push('plataforma')} active={location.pathname === '/plataforma' || location.pathname === 'plataforma'}>Liceos de Educación Técnica Profesional (ETP)</NavItem>
-                <NavItem style={styles.navItem} onClick={() => window.open(pdf)}>Iniciativas del Sector Privado</NavItem>
-                <NavItem onClick={() => this.setState({ openVideo: true })} >Tutorial</NavItem>
-              </Nav>
-            </Navbar.Collapse>
-          }
+          <Navbar.Collapse>
+            <Nav>
+              <NavItem onClick={() => this.props.router.push('plataforma')} active={location.pathname === 'plataforma'}>Liceos de Educación Técnica Profesional (ETP)</NavItem>
+              <NavItem onClick={() => window.open(pdf)}>Iniciativas del Sector Privado</NavItem>
+            </Nav>
+            <Nav pullRight>
+              {width > 867 && <span style={styles.tutorial} />}
+              <NavItem onClick={() => this.setState({ openVideo: true })} >
+                Tutorial
+              </NavItem>
+            </Nav>
+          </Navbar.Collapse>
         </Col>
         <ModalYoutube show={openVideo} close={() => this.setState({ openVideo: false })} />
       </Navbar>
@@ -64,25 +54,10 @@ export default class Main extends Component {
 }
 
 const styles = {
-  container: {
-    marginBottom: 0,
-    position: 'relative',
-    borderBottomLeftRadius: 0,
-    borderBottomRightRadius: 0,
-    borderTopLeftRadius: 0,
-    borderTopRightRadius: 0,
-    paddingLeft: 0,
-    paddingRight: 0,
-  },
-  navItem: {
-    borderWidth: 1,
-    borderColor: 'white',
-  },
   logoSmall: {
     height: 48,
     marginTop: 6,
     paddingRight: 10,
-    paddingLeft: 10,
   },
   tutorial: {
     borderLeftWidth: 1,
@@ -91,10 +66,5 @@ const styles = {
     height: '70%',
     top: '15%',
     position: 'absolute',
-  },
-  construccion: {
-    height: 28,
-    width: 28,
-    marginTop: 8,
   },
 };
