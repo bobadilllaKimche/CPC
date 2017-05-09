@@ -69,7 +69,7 @@ export default class Platform extends Component {
     if (angle < 0) {
       angle += 360;
     }
-    const zoom = Math.round(Math.log(this.props.width * 360 / angle / globalWidth) / Math.LN2);
+    const zoom = Math.min(Math.round(Math.log(this.props.width * 360 / angle / globalWidth) / Math.LN2), 15);
     this.setState({ searched, center: { lat: searched.geometry.location.lat(), lng: searched.geometry.location.lng() }, zoom });
     this.filter();
   }
@@ -126,6 +126,7 @@ export default class Platform extends Component {
     const { center, currentPosition, modal, actual, listEducation, searched, hoverItem, zoom } = this.state;
     const actualModal = RealData[actual - 1];
     const { height, width } = this.props;
+    console.log(zoom);
     if (width > 993) {
       return (
         <div style={{ height: height - 110 }}>
