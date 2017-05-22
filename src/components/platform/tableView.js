@@ -8,6 +8,44 @@ import Img4 from './img/4.png';
 import Img5 from './img/5.png';
 import Img6 from './img/6.png';
 
+const styles = {
+  container: {
+    backgroundColor: '#ffffff',
+    position: 'fixed',
+    top: 146,
+    zIndex: 5,
+    borderRadius: 5,
+    padding: 0,
+    alignItems: 'center',
+    boxShadow: '3px 3px 3px #888888',
+  },
+  row1: {
+    display: 'flex',
+    alignItems: 'center',
+    backgroundColor: '#f3f3f3',
+    textAlign: 'center',
+    margin: 0,
+  },
+  row2: {
+    display: 'flex',
+    alignItems: 'center',
+    textAlign: 'center',
+    backgroundColor: '#dbdbdb',
+    margin: 0,
+  },
+  hover: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    textAlign: 'center',
+    backgroundColor: '#a9a9b7',
+    margin: 0,
+  },
+  image: {
+    height: 30,
+  },
+};
+
 export default class TableView extends Component {
 
   static get propTypes() {
@@ -112,41 +150,3 @@ export default class TableView extends Component {
     }
   }
 }
-
-const styles = {
-  container: {
-    backgroundColor: '#ffffff',
-    position: 'fixed',
-    top: 146,
-    zIndex: 5,
-    borderRadius: 5,
-    padding: 0,
-    alignItems: 'center',
-    boxShadow: '3px 3px 3px #888888',
-  },
-  row1: {
-    display: 'flex',
-    alignItems: 'center',
-    backgroundColor: '#f3f3f3',
-    textAlign: 'center',
-    margin: 0,
-  },
-  row2: {
-    display: 'flex',
-    alignItems: 'center',
-    textAlign: 'center',
-    backgroundColor: '#dbdbdb',
-    margin: 0,
-  },
-  hover: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    textAlign: 'center',
-    backgroundColor: '#a9a9b7',
-    margin: 0,
-  },
-  image: {
-    height: 30,
-  },
-};

@@ -58,6 +58,62 @@ export default class NavBar extends Component {
       sector: '',
       tasa: '',
       direccion: '',
+      styles: {
+        container: {
+          backgroundColor: Colors.SOFTPURPLE,
+          color: '#fafafb',
+          position: 'fixed',
+          top: 76,
+          zIndex: 5,
+        },
+        containerR: {
+          backgroundColor: Colors.SOFTPURPLE,
+          color: '#fafafb',
+        },
+        select: {
+          backgroundColor: 'transparent',
+          borderColor: 'transparent',
+          justifyContent: 'flex-start',
+          color: '#a0e00f !important',
+          borderBottomColor: '#fafafb',
+        },
+        icon: {
+          margin: 5,
+        },
+        col: {
+          padding: 2,
+        },
+        colClickeable: {
+          cursor: 'pointer',
+          padding: 0,
+        },
+        searchBox: {
+          color: '#a0e00f',
+          backgroundColor: 'transparent',
+          borderWidth: 0,
+          borderBottomWidth: 1,
+          width: '100%',
+          borderColor: 'transparent',
+          borderBottomColor: '#fafafb',
+          paddingTop: 8,
+          paddingHorizontal: 5,
+        },
+        iconImg: {
+          height: 35,
+        },
+        iconImgFind: {
+          height: 32,
+          marginTop: 5,
+        },
+        logo: {
+          padding: 5,
+          backgroundColor: Colors.SOFTPURPLE,
+          position: 'fixed',
+          top: 0,
+          left: 100,
+          height: 125,
+        },
+      },
     };
     this.selectArea = this.selectArea.bind(this);
     this.selectEmpleabilidad = this.selectEmpleabilidad.bind(this);
@@ -74,7 +130,7 @@ export default class NavBar extends Component {
   }
 
   render() {
-    const { sector, tasa } = this.state;
+    const { sector, tasa, styles } = this.state;
     const { width } = this.props;
     if (width > 993) {
       return (
@@ -170,60 +226,3 @@ export default class NavBar extends Component {
     }
   }
 }
-
-const styles = {
-  container: {
-    backgroundColor: Colors.SOFTPURPLE,
-    color: '#fafafb',
-    position: 'fixed',
-    top: 76,
-    zIndex: 5,
-  },
-  containerR: {
-    backgroundColor: Colors.SOFTPURPLE,
-    color: '#fafafb',
-  },
-  select: {
-    backgroundColor: 'transparent',
-    borderColor: 'transparent',
-    justifyContent: 'flex-start',
-  },
-  icon: {
-    margin: 5,
-  },
-  col: {
-    padding: 2,
-  },
-  colClickeable: {
-    cursor: 'pointer',
-    padding: 0,
-  },
-  searchBox: {
-    color: '#a0e00f',
-    backgroundColor: 'transparent',
-    borderWidth: 0,
-    borderBottomWidth: 1,
-    width: '100%',
-    borderColor: 'transparent',
-    borderBottomColor: '#fafafb',
-    paddingTop: 8,
-    paddingHorizontal: 5,
-  },
-  iconImg: {
-    height: 35,
-  },
-  iconImgFind: {
-    height: 32,
-    marginTop: 5,
-  },
-  logo: {
-    padding: 5,
-    backgroundColor: Colors.SOFTPURPLE,
-    position: 'fixed',
-    top: 0,
-    left: 100,
-    height: 125,
-  },
-  logoDiv: {
-  },
-};

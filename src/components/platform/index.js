@@ -20,6 +20,20 @@ const K_SIZE = 25;
 
 const KEY = 'AIzaSyDh-wPi4G-h1nfsYKuHKub1xss-6BRE9zk';
 
+const styles = {
+  icon: {
+    position: 'absolute',
+    width: K_WIDTH,
+    left: -K_WIDTH / 2,
+    height: K_HEIGHT,
+    top: -K_HEIGHT / 2,
+    // height: 30,
+  },
+  icon2: {
+    height: K_HEIGHT,
+  },
+};
+
 export default class Platform extends Component {
 
   static propTypes = {
@@ -126,7 +140,6 @@ export default class Platform extends Component {
     const { center, currentPosition, modal, actual, listEducation, searched, hoverItem, zoom } = this.state;
     const actualModal = RealData[actual - 1];
     const { height, width } = this.props;
-    console.log(zoom);
     if (width > 993) {
       return (
         <div style={{ height: height - 110 }}>
@@ -247,22 +260,10 @@ export default class Platform extends Component {
                   : null
                 }
                 {listEducation.map(place =>
-                  <Pin
-                    key={place.id}
-                    lat={place.latLong.split(',')[0]}
-                    lng={place.latLong.split(',')[1]}
-                    text={place.id}
-                    type={place.tipo}
-                    hover={hoverItem}
-                  />
+                  <Pin key={place.id} lat={place.latLong.split(',')[0]} lng={place.latLong.split(',')[1]} text={place.id} type={place.tipo} hover={hoverItem} />
                 )}
                 {searched ?
-                  <Image
-                    src={imgSearch}
-                    lat={searched.geometry.location.lat()}
-                    lng={searched.geometry.location.lng()}
-                    style={styles.icon2}
-                  />
+                  <Image src={imgSearch} lat={searched.geometry.location.lat()} lng={searched.geometry.location.lng()} style={styles.icon2} />
                   : null
                 }
             </GoogleMap>
@@ -279,17 +280,3 @@ export default class Platform extends Component {
     }
   }
 }
-
-const styles = {
-  icon: {
-    position: 'absolute',
-    width: K_WIDTH,
-    left: -K_WIDTH / 2,
-    height: K_HEIGHT,
-    top: -K_HEIGHT / 2,
-    // height: 30,
-  },
-  icon2: {
-    height: K_HEIGHT,
-  },
-};

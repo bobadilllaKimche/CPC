@@ -65,6 +65,139 @@ const photoColegios = [
   photoPH,
 ];
 
+
+const styles = {
+  title: {
+    justifyContent: 'space-between',
+    flexDirection: 'row',
+    display: 'flex',
+    marginTop: 5,
+    paddingBottom: 0,
+    marginLeft: 15,
+  },
+  direccion: {
+    fontStyle: 'italic',
+    fontSize: 14,
+    padding: 5,
+    paddingRight: 10,
+  },
+  modalInfo: {
+    borderColor: '#D0D0D5',
+    borderLeftWidth: '0.5px',
+    borderLeftStyle: 'solid',
+    borderRightWidth: '0.5px',
+    borderRightStyle: 'solid',
+    // marginLeft: 20,
+  },
+  separator: {
+    borderColor: '#D0D0D5',
+    borderLeftWidth: '1px',
+    borderLeftStyle: 'solid',
+    paddingLeft: 15,
+    height: 280,
+  },
+  modalSubheader: {
+    fontWeight: 'bold',
+    marginBottom: 0,
+  },
+  modaltextInfo: {
+    lineHeight: 1,
+  },
+  modaltextInfo2: {
+    lineHeight: 1,
+    color: '#2c3e50',
+    cursor: 'pointer',
+    fontWeight: 'bold',
+  },
+  infoRight: {
+    backgroundColor: '#EDEDF1',
+    margin: 10,
+    marginTop: 15,
+    padding: 5,
+  },
+  rowCenter: {
+    alignItems: 'center',
+    marginTop: 15,
+  },
+  imageModal: {
+    height: 100,
+  },
+  tasa: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginBottom: 0,
+    textAlign: 'center',
+    color: '#626183',
+    justifyContent: 'center',
+  },
+  tasaText: {
+    fontSize: 36,
+    color: '#626183',
+    marginLeft: 5,
+  },
+  tasaText2: {
+    color: '#626183',
+    marginLeft: 5,
+    lineHeight: 1,
+    textAlign: 'left',
+  },
+  modalFooterTitulacion: {
+    paddingLeft: 20,
+    paddingRight: 0,
+  },
+  modalFooterButtons: {
+    paddingRight: 20,
+    paddingLeft: 0,
+  },
+  footerImages2: {
+    height: 90,
+  },
+  footerImages3: {
+    height: 85,
+  },
+  footerImages2R: {
+    height: 45,
+  },
+  footerImages1: {
+    height: 45,
+  },
+  footerText: {
+    color: '#2c3E50',
+    lineHeight: 1,
+    marginTop: 23,
+    textAlign: 'left',
+  },
+  footerTextR: {
+    color: '#2c3E50',
+    lineHeight: 1,
+    marginTop: 5,
+    textAlign: 'left',
+  },
+  imageGremio: {
+    height: 35,
+    marginLeft: 15,
+  },
+  imageGremio0: {
+    height: 50,
+    marginLeft: 15,
+  },
+  photoGremios: {
+    alignItems: 'center',
+    display: 'flex',
+    height: 280,
+  },
+  subheaderVinculo: {
+    color: '#415161',
+    fontStyle: 'italic',
+    fontSize: 12,
+    // fontWeight: 100,
+    paddingLeft: -10,
+  },
+  subheaderAño: {
+    fontWeight: 'normal',
+  },
+};
+
 export default class ModalMap extends Component {
 
   static get propTypes() {
@@ -150,7 +283,7 @@ export default class ModalMap extends Component {
             <Col xs={12} md={5}>
               <Image src={imageGremios[actualModal.IDGremio]} style={actualModal.IDGremio !== 0 ? styles.imageGremio0 : styles.imageGremio} />
               <div style={styles.infoRight}>
-                {actualModal.mail ? actualModal.mail.includes('http') ?
+                {actualModal.mail && actualModal.mail.includes('http') ?
                   <a href={actualModal.mail} target="_blank">
                     <p style={styles.modaltextInfo2}>Contacto</p>
                   </a>
@@ -159,8 +292,6 @@ export default class ModalMap extends Component {
                     <p style={styles.modalSubheader}>Contacto</p>
                     <p style={styles.modaltextInfo}>{actualModal.mail}</p>
                   </div>
-                  :
-                  <div></div>
                 }
                 {actualModal.web &&
                   <div>
@@ -499,135 +630,3 @@ export default class ModalMap extends Component {
     }
   }
 }
-
-const styles = {
-  title: {
-    justifyContent: 'space-between',
-    flexDirection: 'row',
-    display: 'flex',
-    marginTop: 5,
-    paddingBottom: 0,
-    marginLeft: 15,
-  },
-  direccion: {
-    fontStyle: 'italic',
-    fontSize: 14,
-    padding: 5,
-    paddingRight: 10,
-  },
-  modalInfo: {
-    borderColor: '#D0D0D5',
-    borderLeftWidth: '0.5px',
-    borderLeftStyle: 'solid',
-    borderRightWidth: '0.5px',
-    borderRightStyle: 'solid',
-    // marginLeft: 20,
-  },
-  separator: {
-    borderColor: '#D0D0D5',
-    borderLeftWidth: '1px',
-    borderLeftStyle: 'solid',
-    paddingLeft: 15,
-    height: 280,
-  },
-  modalSubheader: {
-    fontWeight: 'bold',
-    marginBottom: 0,
-  },
-  modaltextInfo: {
-    lineHeight: 1,
-  },
-  modaltextInfo2: {
-    lineHeight: 1,
-    color: '#2c3e50',
-    cursor: 'pointer',
-    fontWeight: 'bold',
-  },
-  infoRight: {
-    backgroundColor: '#EDEDF1',
-    margin: 10,
-    marginTop: 15,
-    padding: 5,
-  },
-  rowCenter: {
-    alignItems: 'center',
-    marginTop: 15,
-  },
-  imageModal: {
-    height: 100,
-  },
-  tasa: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    marginBottom: 0,
-    textAlign: 'center',
-    color: '#626183',
-    justifyContent: 'center',
-  },
-  tasaText: {
-    fontSize: 36,
-    color: '#626183',
-    marginLeft: 5,
-  },
-  tasaText2: {
-    color: '#626183',
-    marginLeft: 5,
-    lineHeight: 1,
-    textAlign: 'left',
-  },
-  modalFooterTitulacion: {
-    paddingLeft: 20,
-    paddingRight: 0,
-  },
-  modalFooterButtons: {
-    paddingRight: 20,
-    paddingLeft: 0,
-  },
-  footerImages2: {
-    height: 90,
-  },
-  footerImages3: {
-    height: 85,
-  },
-  footerImages2R: {
-    height: 45,
-  },
-  footerImages1: {
-    height: 45,
-  },
-  footerText: {
-    color: '#2c3E50',
-    lineHeight: 1,
-    marginTop: 23,
-    textAlign: 'left',
-  },
-  footerTextR: {
-    color: '#2c3E50',
-    lineHeight: 1,
-    marginTop: 5,
-    textAlign: 'left',
-  },
-  imageGremio: {
-    height: 35,
-    marginLeft: 15,
-  },
-  imageGremio0: {
-    height: 50,
-    marginLeft: 15,
-  },
-  photoGremios: {
-    alignItems: 'center',
-    display: 'flex',
-    height: 280,
-  },
-  subheaderVinculo: {
-    color: '#415161',
-    fontStyle: 'italic',
-    fontSize: 12,
-    // fontWeight: 100,
-    paddingLeft: -10,
-  },
-  subheaderAño: {
-    fontWeight: 'normal',
-  },
-};

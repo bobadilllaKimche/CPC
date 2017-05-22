@@ -52,6 +52,34 @@ export default class Footer extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      styles: {
+        imagesCPC: {
+          height: 80,
+          width: 'auto',
+        },
+        images: {
+          marginTop: 10,
+          height: 50,
+          textAlign: 'center',
+        },
+        title: {
+          cursor: 'pointer',
+          color: '#ffffff',
+          fontSize: 11,
+        },
+        subtitle: {
+          lineHeight: 1.3,
+        },
+        subtitleResponsive: {
+          fontSize: 9,
+          lineHeight: 1.3,
+        },
+        imagesResponsive: {
+          height: 30,
+          marginBottom: 10,
+          marginTop: 10,
+        },
+      },
     };
   }
 
@@ -77,10 +105,11 @@ export default class Footer extends Component {
 
   render() {
     const { width } = this.props;
+    const { styles } = this.state;
     return (
       <Grid style={{ backgroundColor: Colors.PURPLE, color: 'white', padding: 15, paddingBottom: width > 903 ? 15 : 40 }} fluid>
         <Col xs={12} sm={3} smOffset={1}>
-          <a target="_blank"href={'http://www.cpc.cl/'}>
+          <a target="_blank" href={'http://www.cpc.cl/'}>
             {width > 993 ?
               <Image src={imgCPC} style={styles.imagesCPC} />
               :
@@ -101,32 +130,3 @@ export default class Footer extends Component {
     );
   }
 }
-
-const styles = {
-  imagesCPC: {
-    height: 80,
-    width: 'auto',
-  },
-  images: {
-    marginTop: 10,
-    height: 50,
-    textAlign: 'center',
-  },
-  title: {
-    cursor: 'pointer',
-    color: '#ffffff',
-    fontSize: 11,
-  },
-  subtitle: {
-    lineHeight: 1.3,
-  },
-  subtitleResponsive: {
-    fontSize: 9,
-    lineHeight: 1.3,
-  },
-  imagesResponsive: {
-    height: 30,
-    marginBottom: 10,
-    marginTop: 10,
-  },
-};
