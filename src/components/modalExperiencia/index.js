@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { Col, Modal, Image, Row, OverlayTrigger, Popover } from 'react-bootstrap';
+import { Modal, Image } from 'react-bootstrap';
 import YouTube from 'react-youtube';
 import Slider from 'react-slick';
 
@@ -23,6 +23,7 @@ export default class ModalFormando extends Component {
     return {
       show: PropTypes.bool,
       close: PropTypes.func,
+      width: PropTypes.int,
     };
   }
 
@@ -39,13 +40,6 @@ export default class ModalFormando extends Component {
         centerMode: true,
         className: 'center',
       },
-      opts: {
-        height: '450',
-        width: '800',
-        playerVars: { // https://developers.google.com/youtube/player_parameters
-          autoplay: 1,
-        },
-      },
       videos: [
         'aQgChKon0vE',
         'W8QYWb8uQhE',
@@ -58,8 +52,7 @@ export default class ModalFormando extends Component {
 
   render() {
     const { show, close, width } = this.props;
-    const { settings, opts, next, prev, active, videos } = this.state;
-    console.log(width);
+    const { settings, next, prev, active, videos } = this.state;
     return (
       <Modal
         show={show}
@@ -89,7 +82,7 @@ export default class ModalFormando extends Component {
             />
             :
             <center>
-              <Image src={active === 5 ? imgBoletin1 : imgBoletin2} responsive />
+              <Image style={{ height: 450 }}src={active === 5 ? imgBoletin1 : imgBoletin2} responsive />
             </center>
           }
           <div style={{ marginTop: 5, marginLeft: 5, marginRight: 5 }}>
