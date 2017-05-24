@@ -60,10 +60,10 @@ export default class ModalFormando extends Component {
         onHide={close}
         bsSize="large"
       >
-        <Modal.Header closeButton>
+        <Modal.Header closeButton style={style.modal}>
           <Modal.Title>FORTALECIENDO LA FORMACIÓN TÉCNICA</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body style={style.modal}>
           <p style={style.description}>
             En esta sección encontrarás el detalle del proyecto que la CPC con el Centro de Políticas Públicas de la UC, Inacap y Duoc,
             está desarrollando para identificar las dificultades en el funcionamiento de la educación técnica y desarrollar un mayor

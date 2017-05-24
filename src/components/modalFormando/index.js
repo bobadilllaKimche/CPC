@@ -95,10 +95,10 @@ export default class ModalFormando extends Component {
         onHide={close}
         bsSize="large"
       >
-        <Modal.Header closeButton>
+        <Modal.Header closeButton style={style.modal}>
           <Modal.Title>FORMANDO CHILENOS</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body style={style.modal}>
           <p style={style.description}>
             El rol del sector privado es fundamental en la tarea de alinear los requerimientos del
             mundo productivo con el proceso formativo de los jóvenes para lograr buena formación y

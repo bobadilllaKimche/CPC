@@ -3,14 +3,15 @@ import { Modal, Image } from 'react-bootstrap';
 import YouTube from 'react-youtube';
 import Slider from 'react-slick';
 
-import imgNestle1 from './img/nestle.png';
-import imgNestle2 from './img/nestle2.png';
-import imgNestle3 from './img/nestle3.png';
-import imgTelefonica from './img/telefonica.png';
-import imgVinos from './img/vinos.png';
+// import FaCircleThin from 'react-icons/lib/fa/circle-thin';
+// import FaCircle from 'react-icons/lib/fa/circle';
 
-import imgBoletin1 from './img/Nestle1.jpg';
-import imgBoletin2 from './img/Nestle2.jpg';
+import imgMin1 from './img/Miniatura.png';
+import imgMin2 from './img/Miniatura2.png';
+import imgMin3 from './img/miniatura3.png';
+import imgMin4 from './img/miniatura4.png';
+import imgMin5 from './img/miniatura5.png';
+import imgMin6 from './img/foto1.png';
 
 import imgFleDer from './img/flechaDer.png';
 import imgFleDerHover from './img/flechaDerHover.png';
@@ -32,14 +33,7 @@ export default class ModalFormando extends Component {
     this.state = {
       next: false,
       prev: false,
-      acive: 0,
-      settings: {
-        speed: 500,
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        centerMode: true,
-        className: 'center',
-      },
+      active: 0,
       videos: [
         'aQgChKon0vE',
         'W8QYWb8uQhE',
@@ -47,79 +41,99 @@ export default class ModalFormando extends Component {
         'JO4lTzRSCec',
         'Go_CD4RgAOw',
       ],
+      style: {
+        description: {
+          fontStyle: 'italic',
+          fontSize: 14,
+          fontFamily: 'Helvetica Neue Medium',
+          textAlign: 'justify',
+        },
+        hr: {
+          marginTop: 3,
+          marginBottom: 3,
+        },
+        modal: { paddingLeft: 20, paddingRight: 20 },
+        divisor: { marginBottom: 60, borderTop: '5px solid #83bf27' },
+      },
     };
   }
 
+  number(val, type) {
+    return type ? (val + 1) % 5 : Math.abs((val - 1) % 5);
+  }
+
   render() {
-    const { show, close, width } = this.props;
-    const { settings, next, prev, active, videos } = this.state;
+    const { show, close } = this.props;
+    const { next, prev, videos, style, active } = this.state;
+    console.log(active, -1 % 5);
     return (
       <Modal
         show={show}
         onHide={close}
         bsSize="large"
       >
-        <Modal.Header closeButton>
+        <Modal.Header closeButton style={style.modal}>
           <Modal.Title>EXPERIENCIAS SECTORIALES</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
-          <p style={{ fontStyle: 'italic', fontSize: 12 }}>
+        <Modal.Body style={style.modal}>
+          <p style={style.description}>
             En esta sección encontrarás el modelo CT-MAC que implementa un sistema de evaluación y un proceso de mejoramiento de calidad
             del servicio de capacitación de las empresas formadoras, que culmina con la adquisición de un sello de calidad CPC como
             certificación para el sector.
           </p>
           <hr />
-          {active < 5 ?
-            <YouTube
-              videoId={videos[active]}
-              opts={{
-                height: '450',
-                width: width > 993 ? 800 : width * 0.8,
-                playerVars: { // https://developers.google.com/youtube/player_parameters
-                  autoplay: 1,
-                },
-              }}
-            />
-            :
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <Image src={!prev ? imgFleIzq : imgFleIzqHover} onMouseLeave={() => this.setState({ prev: false })} onMouseEnter={() => this.setState({ prev: true })} onClick={() => { this.refs.slider.slickPrev(); this.setState({ active: this.number(active, true) }); }} />
             <center>
-              <Image style={{ height: 450 }}src={active === 5 ? imgBoletin1 : imgBoletin2} responsive />
+              {active < 5 ?
+                <YouTube
+                  videoId={videos[active]}
+                  opts={{
+                    height: '400',
+                    width: 800,
+                    playerVars: { // https://developers.google.com/youtube/player_parameters
+                      autoplay: 1,
+                    },
+                  }}
+                />
+                :
+                <Image style={{ height: 400 }} src={imgMin6} responsive />
+              }
             </center>
-          }
+            <Image src={!next ? imgFleDer : imgFleDerHover} onMouseLeave={() => this.setState({ next: false })} onMouseEnter={() => this.setState({ next: true })} onClick={() => { this.refs.slider.slickPrev(); this.setState({ active: this.number(active, false) }); }} />
+          </div>
+          <hr style={style.hr} />
           <div style={{ marginTop: 5, marginLeft: 5, marginRight: 5 }}>
             <Slider
               ref="slider"
-              slideToShow
               slideToScroll
               infinite
-              nextArrow={<Image src={!next ? imgFleDer : imgFleDerHover} onMouseLeave={() => this.setState({ next: false })} onMouseEnter={() => this.setState({ next: true })} />}
-              prevArrow={<Image src={!prev ? imgFleIzq : imgFleIzqHover} onMouseLeave={() => this.setState({ prev: false })} onMouseEnter={() => this.setState({ prev: true })} />}
-              {...settings}
+              slidesToShow={5}
+              dots
+              centerMode
             >
               <center style={{ cursor: 'pointer' }}>
-                <Image onClick={() => { this.refs.slider.slickGoTo(0); this.setState({ active: 0 }); }} src={imgNestle1} role="presentation" style={{ height: 80 }} />
+                <Image onClick={() => { this.refs.slider.slickGoTo(0); this.setState({ active: 0 }); }} src={imgMin4} role="presentation" style={{ width: '100%', height: 'auto', margin: 2 }} />
               </center>
               <center style={{ cursor: 'pointer' }}>
-                <Image onClick={() => { this.refs.slider.slickGoTo(1); this.setState({ active: 1 }); }} src={imgNestle2} role="presentation" style={{ height: 80 }} />
+                <Image onClick={() => { this.refs.slider.slickGoTo(1); this.setState({ active: 1 }); }} src={imgMin3} role="presentation" style={{ width: '100%', height: 'auto', margin: 2 }} />
               </center>
               <center style={{ cursor: 'pointer' }}>
-                <Image onClick={() => { this.refs.slider.slickGoTo(2); this.setState({ active: 2 }); }} src={imgNestle3} role="presentation" style={{ height: 80 }} />
+                <Image onClick={() => { this.refs.slider.slickGoTo(2); this.setState({ active: 2 }); }} src={imgMin1} role="presentation" style={{ width: '100%', height: 'auto', margin: 2 }} />
               </center>
               <center style={{ cursor: 'pointer' }}>
-                <Image onClick={() => { this.refs.slider.slickGoTo(3); this.setState({ active: 3 }); }} src={imgTelefonica} role="presentation" style={{ height: 80 }} />
+                <Image onClick={() => { this.refs.slider.slickGoTo(3); this.setState({ active: 3 }); }} src={imgMin5} role="presentation" style={{ width: '100%', height: 'auto', margin: 2 }} />
               </center>
               <center style={{ cursor: 'pointer' }}>
-                <Image onClick={() => { this.refs.slider.slickGoTo(4); this.setState({ active: 4 }); }} src={imgVinos} role="presentation" style={{ height: 80 }} />
+                <Image onClick={() => { this.refs.slider.slickGoTo(4); this.setState({ active: 4 }); }} src={imgMin2} role="presentation" style={{ width: '100%', height: 'auto', margin: 2 }} />
               </center>
               <center style={{ cursor: 'pointer' }}>
-                <Image onClick={() => { this.refs.slider.slickGoTo(5); this.setState({ active: 5 }); }} src={imgBoletin1} role="presentation" style={{ height: 80 }} />
-              </center>
-              <center style={{ cursor: 'pointer' }}>
-                <Image onClick={() => { this.refs.slider.slickGoTo(6); this.setState({ active: 6 }); }} src={imgBoletin2} role="presentation" style={{ height: 80 }} />
+                <Image onClick={() => { this.refs.slider.slickGoTo(5); this.setState({ active: 5 }); }} src={imgMin6} role="presentation" style={{ width: '100%', height: 'auto', margin: 2 }} />
               </center>
             </Slider>
           </div>
         </Modal.Body>
-        <hr style={{ marginBottom: 20, borderTop: '5px solid #83bf27' }} />
+        <hr style={style.divisor} />
       </Modal>
     );
   }
