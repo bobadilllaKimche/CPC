@@ -535,7 +535,7 @@ export default class ModalMap extends Component {
                   </OverlayTrigger>
               }
               {actualModal.id === 10 &&
-                <Col md={6} onMouseLeave={() => this.setState({ consejo: false })} onMouseEnter={() => this.setState({ consejo: true })} onClick={() => this.refs.slider.slickGoTo(2)}>
+                <Col md={4} onMouseLeave={() => this.setState({ consejo: false })} onMouseEnter={() => this.setState({ consejo: true })} onClick={() => this.refs.slider.slickGoTo(2)}>
                   <a style={{ flexDirection: 'row', display: 'flex', cursor: 'pointer', textDecoration: 'none' }} >
                     <Image src={!consejo ? imgConsejo : imgConsejoHover} style={styles.footerImages2} />
                     <p style={styles.footerText} >Consejo Asesor Empresarial</p>

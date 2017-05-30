@@ -10,13 +10,14 @@ import ModalFormando from './components/modalFormando';
 import ModalFortaleciendo from './components/modalFortaleciendo';
 import ModalCapacitar from './components/modalCapacitar';
 import ModalExperiencia from './components/modalExperiencia';
+import ImagesView from './components/imagesView';
+import Platform from './components/platform';
 
 import ReactGA from 'react-ga';
 ReactGA.initialize('UA-97048045-01', {
   debug: true,
 });
 
-import Platform from './components/platform';
 
 // TODO: Arreglar warnings #warnings
 
@@ -77,6 +78,7 @@ export default class Main extends Component {
             }
           />
           <Route exact path="/plataforma" render={props => <Platform {...props} {...this.state} />} />
+          <Route exact path="/images" render={props => <ImagesView {...props} {...this.state} />} />
           <Footer {...this.props} {...this.state} />
           <ModalYoutube show={openVideo} close={() => this.setState({ openVideo: false })} />
           <ModalFormando show={openFormando} close={() => this.setState({ openFormando: false })} />

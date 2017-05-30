@@ -1,15 +1,17 @@
 import React, { Component, PropTypes } from 'react';
-import { Col, Modal, Image, Row, OverlayTrigger, Popover } from 'react-bootstrap';
+import { Col, Modal, Image, Row } from 'react-bootstrap';
 import imgBoletin from './img/boletin.png';
 import imgEmpresas from './img/empresas.png';
 import imgSeminarios from './img/seminario.png';
 import imgInforme from './img/informe.png';
+import { Link } from 'react-router-dom';
 
 import img1 from '../../files/capacitar/3.2 Empresas participantes.jpg';
 import img2 from '../../files/capacitar/Sintesis seminario.jpg';
 import pdf1 from '../../files/capacitar/Boletin 1.pdf';
 import pdf2 from '../../files/capacitar/Boletin 2.pdf';
 import pdf3 from '../../files/capacitar/Descripción Evento.pdf';
+import pdf4 from '../../files/capacitar/Informe Ejecutivo.pdf';
 
 export default class ModalFormando extends Component {
 
@@ -25,21 +27,28 @@ export default class ModalFormando extends Component {
     this.state = {
       style: {
         description: {
-          fontStyle: 'italic',
           fontSize: 14,
-          fontFamily: 'Helvetica Neue Medium',
+          fontFamily: 'Helvetica Neue',
           textAlign: 'justify',
+          color: '#474761',
         },
         title: {
           lineHeight: 1,
-          fontSize: 18.84,
-          fontFamily: 'Lato Regular 400',
+          fontSize: 16,
+          fontFamily: 'Lato',
           color: '#83bf27',
-          height: 50,
+          height: 40,
+          marginTop: 10,
+        },
+        superTitle: {
+          lineHeight: 1,
+          fontSize: 18.84,
+          fontFamily: 'Lato',
+          color: '#474761',
         },
         item: {
           lineHeight: 1,
-          fontFamily: 'Helvetica Neue Regular',
+          fontFamily: 'Helvetica Neue',
           color: '#474761',
           cursor: 'pointer',
           fontSize: 14,
@@ -64,7 +73,7 @@ export default class ModalFormando extends Component {
         bsSize="large"
       >
         <Modal.Header closeButton style={style.modal}>
-          <Modal.Title>CAPACITAR CON CALIDAD</Modal.Title>
+          <Modal.Title style={style.superTitle}>CAPACITAR CON CALIDAD</Modal.Title>
         </Modal.Header>
         <Modal.Body style={style.modal}>
           <p style={style.description}>
@@ -75,9 +84,7 @@ export default class ModalFormando extends Component {
           <Row>
             <Col xs={6} md={3}>
               <Image src={imgInforme} alt="242x200" />
-              <OverlayTrigger placement="top" overlay={<Popover id="tooltip">En proceso...</Popover>}>
-                <p style={style.title}>INFORME EJECUTIVO</p>
-              </OverlayTrigger>
+              <p style={{ ...style.title, cursor: 'pointer' }} onClick={() => window.open(pdf4)}>INFORME EJECUTIVO</p>
             </Col>
             <Col xs={6} md={3}>
               <Image src={imgEmpresas} alt="242x200" />
@@ -92,7 +99,9 @@ export default class ModalFormando extends Component {
               <hr style={style.hr} />
               <p onClick={() => window.open(img2)}><a style={style.item}>Síntesis del Seminario</a></p>
               <hr style={style.hr} />
-              <p><a style={style.item} href={'https://www.dropbox.com/sh/nboegejcj6aiumb/AACtMDFapvypCouBKfpH8_Moa/3.%20Capacitar%20con%20calidad/3.3%20Seminario/Fotos?dl=0'}>Fotos</a></p>
+              <Link to="/images" onClick={close} target="_blank">
+                <p ><a style={style.item}>Fotos</a></p>
+              </Link>
               <hr style={style.hr} />
             </Col>
             <Col xs={6} md={3}>

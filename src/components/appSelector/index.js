@@ -108,24 +108,22 @@ export default class AppSelector extends Component {
     const { width } = this.props;
     const isDesktop = width > 993;
     return (
-      <div className="animated fadeInLeftSmall" style={{ marginBottom: -165 }}>
-        <div style={{ display: 'inline-block', position: 'relative', bottom: isDesktop ? 165 : 150, left: isDesktop ? 130 : 175, textAlign: 'left' }}>
-          <div onClick={() => this.props.openFormando()} style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', color: 'white', fontStyle: 'italic' }}>
-            <Image src={iconFormacion} />
-            <p style={{ marginLeft: 5, marginBottom: 0, lineHeight: 1 }}>Formando chilenos</p>
-          </div>
-          <div onClick={() => this.props.openFortaleciendo()} style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', color: 'white', fontStyle: 'italic', position: 'relative', bottom: 5, left: 30 }}>
-            <Image src={iconAlianza} />
-            <p style={{ marginLeft: 5, marginBottom: 0, lineHeight: 1 }}>Fortaleciendo la<br />formación técnica</p>
-          </div>
-          <div onClick={() => this.props.openCapacitar()} style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', color: 'white', fontStyle: 'italic', position: 'relative', bottom: 5, left: isDesktop ? 40 : 30 }}>
-            <Image src={iconCalidad} />
-            <p style={{ marginLeft: 5, marginBottom: 0, lineHeight: 1 }}>Capacitar con calidad</p>
-          </div>
-          <div onClick={() => this.props.openExperiencia()} style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', color: 'white', fontStyle: 'italic', position: 'relative', bottom: 5, left: isDesktop ? 25 : 0 }}>
-            <Image src={iconExperiencia} />
-            <p style={{ marginLeft: 5, marginBottom: 0, lineHeight: 1 }}>Experiencias sectoriales</p>
-          </div>
+      <div className="animated fadeInLeftSmall" style={{ display: 'inline-block', zIndex: 50, position: 'absolute', left: '60%', textAlign: 'left', top: isDesktop ? '20%' : '74%' }}>
+        <div onClick={() => this.props.openFormando()} style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', color: 'white', fontStyle: 'italic' }}>
+          <Image src={iconFormacion} />
+          <p style={{ marginLeft: 5, marginBottom: 0, lineHeight: 1 }}>Formando chilenos</p>
+        </div>
+        <div onClick={() => this.props.openFortaleciendo()} style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', color: 'white', fontStyle: 'italic', position: 'relative', left: 30 }}>
+          <Image src={iconAlianza} />
+          <p style={{ marginLeft: 5, marginBottom: 0, lineHeight: 1 }}>Fortaleciendo la formación técnica</p>
+        </div>
+        <div onClick={() => this.props.openCapacitar()} style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', color: 'white', fontStyle: 'italic', position: 'relative', left: isDesktop ? 35 : 30 }}>
+          <Image src={iconCalidad} />
+          <p style={{ marginLeft: 5, marginBottom: 0, lineHeight: 1 }}>Capacitar con calidad</p>
+        </div>
+        <div onClick={() => this.props.openExperiencia()} style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', color: 'white', fontStyle: 'italic', position: 'relative', left: isDesktop ? 20 : 0 }}>
+          <Image src={iconExperiencia} />
+          <p style={{ marginLeft: 5, marginBottom: 0, lineHeight: 1 }}>Experiencias sectoriales</p>
         </div>
       </div>
     );
@@ -175,12 +173,12 @@ export default class AppSelector extends Component {
                 {renderIf(this.state.timer)(
                   <Col md={3} style={{ padding: 0 }} >
                     <div className="animated fadeInLeft" style={styles.lateralLogo}>
-                      <center >
-                        <Image src={imgDerecha} style={styles.imageBoton} onMouseEnter={() => this.setState({ subSections: true })} />
+                      <center>
+                        {subSections && this.renderIcons()}
+                        <Image src={imgDerecha} style={{ ...styles.imageBoton, zIndex: 0 }} onMouseEnter={() => this.setState({ subSections: true })} />
                       </center>
-                      {subSections && this.renderIcons()}
                       <h4 style={styles.iconName}>Iniciativas del Sector Privado</h4>
-                      <Image src={masInfo} style={styles.imageBotonInfo} onClick={() => this.setState({ openEA: !this.state.openEA })} />
+                      <Image src={masInfo} responsive style={styles.imageBotonInfo} onClick={() => this.setState({ openEA: !this.state.openEA })} />
                       <Collapse in={this.state.openEA}>
                         <Col md={12} style={styles.info} >
                           En esta sección encontrarás información sobre iniciativas que se desarrollan desde el sector privado para mejorar la formación de capital humano.
@@ -214,10 +212,10 @@ export default class AppSelector extends Component {
               </div>
               <Image src={imgLogo} style={{ maxHeight: height * 0.5, marginLeft: '10%' }} responsive />
               <div style={styles.lateralLogoResponsive}>
-                <center >
+                {subSections && this.renderIcons()}
+                <center>
                   <Image src={imgDerecha} style={styles.imageBoton} onClick={() => this.setState({ subSections: true })} />
                 </center>
-                {subSections && this.renderIcons()}
                 <h4 style={styles.iconNameResponsive}>Iniciativas del sector privado</h4>
                 <Image src={masInfo} style={styles.imageBotonInfo} onClick={() => this.setState({ openEA: !this.state.openEA })} />
                 <Collapse in={this.state.openEA}>

@@ -5,7 +5,6 @@ import imgPlan from './img/plan.png';
 import imgReporte from './img/reporte.png';
 import imgTaller from './img/talleres.png';
 
-import img1 from '../../files/fortaleciendo/Firma.JPG';
 import doc1 from '../../files/fortaleciendo/Comunicado Convenio CPC-UC.pdf';
 
 export default class ModalFormando extends Component {
@@ -22,21 +21,27 @@ export default class ModalFormando extends Component {
     this.state = {
       style: {
         description: {
-          fontStyle: 'italic',
           fontSize: 14,
-          fontFamily: 'Helvetica Neue Medium',
+          fontFamily: 'Helvetica Neue',
           textAlign: 'justify',
+          color: '#474761',
         },
         title: {
           lineHeight: 1,
-          fontSize: 18.84,
-          fontFamily: 'Lato Regular 400',
+          fontSize: 16,
+          fontFamily: 'Lato',
           color: '#83bf27',
-          height: 50,
+          height: 40,
+          marginTop: 10,
+        },
+        superTitle: {
+          fontSize: 18.84,
+          fontFamily: 'Lato',
+          color: '#474761',
         },
         item: {
           lineHeight: 1,
-          fontFamily: 'Helvetica Neue Regular',
+          fontFamily: 'Helvetica Neue',
           color: '#474761',
           cursor: 'pointer',
           fontSize: 14,
@@ -98,9 +103,11 @@ export default class ModalFormando extends Component {
             <Col xs={6} md={3}>
               <Image src={imgNoticias} alt="242x200" />
               <p style={style.title}>NOTICIAS</p>
-              <p><a style={style.item} onClick={() => window.open(doc1)} >Comunicado</a></p>
+              <p><a style={style.item} onClick={() => window.open(doc1)} >Titular</a></p>
               <hr style={style.hr} />
-              <p><a style={style.item} onClick={() => window.open(img1)} >Imágenes</a></p>
+              <OverlayTrigger placement="top" overlay={<Popover id="tooltip">En proceso...</Popover>}>
+                <p><a style={style.item} >En la prensa</a></p>
+              </OverlayTrigger>
               <hr style={style.hr} />
             </Col>
           </Row>

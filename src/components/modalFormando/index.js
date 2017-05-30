@@ -26,54 +26,30 @@ export default class ModalFormando extends Component {
     this.state = {
       style: {
         description: {
-          fontStyle: 'italic',
           fontSize: 14,
-          fontFamily: 'Helvetica Neue Medium',
+          fontFamily: 'Helvetica Neue',
           textAlign: 'justify',
+          color: '#474761',
         },
         title: {
           lineHeight: 1,
-          fontSize: 18.84,
-          fontFamily: 'Lato Regular 400',
+          fontSize: 16,
+          fontFamily: 'Lato',
           color: '#83bf27',
-          height: 50,
+          height: 40,
+          marginTop: 10,
+        },
+        superTitle: {
+          fontSize: 18.84,
+          fontFamily: 'Lato',
+          color: '#474761',
         },
         item: {
           lineHeight: 1,
-          fontFamily: 'Helvetica Neue Regular',
+          fontFamily: 'Helvetica Neue',
           color: '#474761',
           cursor: 'pointer',
           fontSize: 14,
-        },
-        itemS: {
-          lineHeight: 1,
-          fontFamily: 'Helvetica Neue Regular',
-          color: '#474761',
-          cursor: 'pointer',
-          fontSize: 16,
-        },
-        item2: {
-          lineHeight: 1,
-          fontFamily: 'Helvetica Neue Regular',
-          color: '#474761',
-          cursor: 'pointer',
-          fontSize: 14,
-          paddingLeft: 3,
-        },
-        item4: {
-          lineHeight: 1,
-          fontFamily: 'Helvetica Neue Regular',
-          color: '#474761',
-          cursor: 'pointer',
-          fontSize: 14,
-        },
-        itemTitle: {
-          lineHeight: 1,
-          fontFamily: 'Helvetica Neue Regular',
-          color: '#474761',
-          cursor: 'pointer',
-          fontSize: 14,
-          fontWeight: 'bold',
         },
         hr: {
           marginTop: 3,
@@ -81,7 +57,37 @@ export default class ModalFormando extends Component {
         },
         modal: { paddingLeft: 20, paddingRight: 20 },
         divisor: { marginBottom: 60, borderTop: '5px solid #83bf27' },
-        number: { marginLeft: 15, fontFamily: 'Helvetica Neue Regular' },
+        itemS: {
+          lineHeight: 1,
+          fontFamily: 'Helvetica Neue',
+          color: '#474761',
+          cursor: 'pointer',
+          fontSize: 14,
+        },
+        item2: {
+          lineHeight: 1,
+          fontFamily: 'Helvetica Neue',
+          color: '#474761',
+          cursor: 'pointer',
+          fontSize: 14,
+          paddingLeft: 3,
+        },
+        item4: {
+          lineHeight: 1,
+          fontFamily: 'Helvetica Neue',
+          color: '#474761',
+          cursor: 'pointer',
+          fontSize: 14,
+        },
+        itemTitle: {
+          lineHeight: 1,
+          fontFamily: 'Helvetica Neue',
+          color: '#474761',
+          cursor: 'pointer',
+          fontSize: 14,
+          fontWeight: 'bold',
+        },
+        number: { marginLeft: 15, fontFamily: 'Helvetica Neue' },
       },
     };
   }
@@ -162,42 +168,42 @@ export default class ModalFormando extends Component {
               <p style={style.title}>PERFILES LABORALES</p>
               <p><a style={style.item} target="_blank" href="http://www.chilevalora.cl/buscador/index.php/PerfilCompetencia/index">Buscador de perfiles ChileValora</a></p>
               <hr style={style.hr} />
-              <p style={style.item}>Sector Forestal</p>
+              <p style={style.itemS}>Sector Forestal</p>
               <hr style={style.hr} />
               <div style={{ height: 150, overflowY: 'scroll' }}>
                 <div style={{ display: 'flex', alignItems: 'baseline' }}>
                   <p style={style.number}>1.</p>
                   <div>
                     <p style={{ marginBottom: 0 }}><a style={style.itemTitle}>Subsector Bosques</a></p>
-                    <p style={{ marginBottom: 0 }}><a style={style.item4} href="http://competenciaslaboralescorma.cl/documentos_SG/perfiles/areabosque/Perfil_ocupacional_APLICADOR_DE_HERBICIDAS.pdf">Aplicador de Herbicida</a></p>
-                    <p style={{ marginBottom: 0 }}><a style={style.item4} href="http://competenciaslaboralescorma.cl/documentos_SG/perfiles/areabosque/Perfil_ocupacional_JEFE_DE_FAENA_SILVICOLA.pdf">Jefe de Faena Silvícola</a></p>
-                    <p style={{ marginBottom: 0 }}><a style={style.item4} href="http://competenciaslaboralescorma.cl/documentos_SG/perfiles/areabosque/Perfil_ocupacional_OPERARIO_SILVICOLA.pdf">Operario Silvícola</a></p>
-                    <p style={{ marginBottom: 0 }}><a style={style.item4} href="http://competenciaslaboralescorma.cl/documentos_SG/perfiles/areabosque/Perfil_ocupacional_BRIGADISTA.pdf">Brigadista</a></p>
+                    <p style={{ marginBottom: 0 }}><a style={style.item4} target="_blank" href="http://competenciaslaboralescorma.cl/documentos_SG/perfiles/areabosque/Perfil_ocupacional_APLICADOR_DE_HERBICIDAS.pdf">Aplicador de Herbicida</a></p>
+                    <p style={{ marginBottom: 0 }}><a style={style.item4} target="_blank" href="http://competenciaslaboralescorma.cl/documentos_SG/perfiles/areabosque/Perfil_ocupacional_JEFE_DE_FAENA_SILVICOLA.pdf">Jefe de Faena Silvícola</a></p>
+                    <p style={{ marginBottom: 0 }}><a style={style.item4} target="_blank" href="http://competenciaslaboralescorma.cl/documentos_SG/perfiles/areabosque/Perfil_ocupacional_OPERARIO_SILVICOLA.pdf">Operario Silvícola</a></p>
+                    <p style={{ marginBottom: 0 }}><a style={style.item4} target="_blank" href="http://competenciaslaboralescorma.cl/documentos_SG/perfiles/areabosque/Perfil_ocupacional_BRIGADISTA.pdf">Brigadista</a></p>
                   </div>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'baseline' }}>
                   <p style={style.number}>2.</p>
                   <div>
                     <p style={{ marginBottom: 0 }}><a style={style.itemTitle}>Subsector Producción Forestal</a></p>
-                    <p style={{ marginBottom: 0 }}><a style={style.item4} href="http://competenciaslaboralescorma.cl/documentos_SG/perfiles/areabosque/Perfil_ocupacional_CONTROLADOR_DE_LA_PRODUCCION.pdf">Controlador de la Producción</a></p>
-                    <p style={{ marginBottom: 0 }}><a style={style.item4} href="http://competenciaslaboralescorma.cl/documentos_SG/perfiles/areabosque/Perfil_ocupacional_MOTOSIERRISTA.pdf">Motosierrista</a></p>
-                    <p style={{ marginBottom: 0 }}><a style={style.item4} href="http://competenciaslaboralescorma.cl/documentos_SG/perfiles/areabosque/Perfil_ocupacional_OPERADOR_DE_MAQUINARIA_CAMINOS.pdf">Operador de Maquinaria de Caminos</a></p>
-                    <p style={{ marginBottom: 0 }}><a style={style.item4} href="http://competenciaslaboralescorma.cl/documentos_SG/perfiles/areabosque/Perfil_ocupacional_CONDUCTOR_FORESTAL.pdf">Conductor Forestal</a></p>
-                    <p style={{ marginBottom: 0 }}><a style={style.item4} href="http://competenciaslaboralescorma.cl/documentos_SG/perfiles/areabosque/Perfil_ocupacional_ESTROBERO.pdf">Estrobero</a></p>
-                    <p style={{ marginBottom: 0 }}><a style={style.item4} href="http://competenciaslaboralescorma.cl/documentos_SG/perfiles/areabosque/Perfil_ocupacional_OPERADOR_DE_MAQUINARIA_FORESTAL.pdf">Operador de Maquinaria Forestal</a></p>
+                    <p style={{ marginBottom: 0 }}><a style={style.item4} target="_blank" href="http://competenciaslaboralescorma.cl/documentos_SG/perfiles/areabosque/Perfil_ocupacional_CONTROLADOR_DE_LA_PRODUCCION.pdf">Controlador de la Producción</a></p>
+                    <p style={{ marginBottom: 0 }}><a style={style.item4} target="_blank" href="http://competenciaslaboralescorma.cl/documentos_SG/perfiles/areabosque/Perfil_ocupacional_MOTOSIERRISTA.pdf">Motosierrista</a></p>
+                    <p style={{ marginBottom: 0 }}><a style={style.item4} target="_blank" href="http://competenciaslaboralescorma.cl/documentos_SG/perfiles/areabosque/Perfil_ocupacional_OPERADOR_DE_MAQUINARIA_CAMINOS.pdf">Operador de Maquinaria de Caminos</a></p>
+                    <p style={{ marginBottom: 0 }}><a style={style.item4} target="_blank" href="http://competenciaslaboralescorma.cl/documentos_SG/perfiles/areabosque/Perfil_ocupacional_CONDUCTOR_FORESTAL.pdf">Conductor Forestal</a></p>
+                    <p style={{ marginBottom: 0 }}><a style={style.item4} target="_blank" href="http://competenciaslaboralescorma.cl/documentos_SG/perfiles/areabosque/Perfil_ocupacional_ESTROBERO.pdf">Estrobero</a></p>
+                    <p style={{ marginBottom: 0 }}><a style={style.item4} target="_blank" href="http://competenciaslaboralescorma.cl/documentos_SG/perfiles/areabosque/Perfil_ocupacional_OPERADOR_DE_MAQUINARIA_FORESTAL.pdf">Operador de Maquinaria Forestal</a></p>
                   </div>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'baseline' }}>
                   <p style={style.number}>3.</p>
                   <div>
                     <p style={{ marginBottom: 0 }}><a style={style.itemTitle}>Subsector Mantención Industrial </a></p>
-                    <p style={{ marginBottom: 0 }}><a style={style.item4} href="http://competenciaslaboralescorma.cl/documentos_SG/perfiles/areaindustria/Perfil_ocupacional_Maestro_Calderero.pdf">Maestro Calderero</a></p>
-                    <p style={{ marginBottom: 0 }}><a style={style.item4} href="http://competenciaslaboralescorma.cl/documentos_SG/perfiles/areaindustria/Perfil_ocupacional_Maestro_Electrico.pdf">Maestro Eléctrico</a></p>
-                    <p style={{ marginBottom: 0 }}><a style={style.item4} href="http://competenciaslaboralescorma.cl/documentos_SG/perfiles/areaindustria/Perfil_ocupacional_Maestro_Electrocontrol.pdf">Maestro Electrocontrol</a></p>
-                    <p style={{ marginBottom: 0 }}><a style={style.item4} href="http://competenciaslaboralescorma.cl/documentos_SG/perfiles/areaindustria/Perfil_ocupacional_Maestro_Mecanico.pdf">Maestro Mecánico</a></p>
-                    <p style={{ marginBottom: 0 }}><a style={style.item4} href="http://competenciaslaboralescorma.cl/documentos_SG/perfiles/areaindustria/Perfil_ocupacional_Operador_de_Maquinaria_de_Aserrio.pdf">Operador de Maquinaria Rodante en Industria Maderera</a></p>
-                    <p style={{ marginBottom: 0 }}><a style={style.item4} href="http://competenciaslaboralescorma.cl/documentos_SG/perfiles/areaindustria/Perfil_ocupacional_Supervisor_Electrocontrol.pdf">Supervisor Electrocontrol</a></p>
-                    <p style={{ marginBottom: 0 }}><a style={style.item4} href="http://competenciaslaboralescorma.cl/documentos_SG/perfiles/areaindustria/Perfil_ocupacional_Supervisor_Mecanico.pdf">Supervisor Mecánico</a></p>
+                    <p style={{ marginBottom: 0 }}><a style={style.item4} target="_blank" href="http://competenciaslaboralescorma.cl/documentos_SG/perfiles/areaindustria/Perfil_ocupacional_Maestro_Calderero.pdf">Maestro Calderero</a></p>
+                    <p style={{ marginBottom: 0 }}><a style={style.item4} target="_blank" href="http://competenciaslaboralescorma.cl/documentos_SG/perfiles/areaindustria/Perfil_ocupacional_Maestro_Electrico.pdf">Maestro Eléctrico</a></p>
+                    <p style={{ marginBottom: 0 }}><a style={style.item4} target="_blank" href="http://competenciaslaboralescorma.cl/documentos_SG/perfiles/areaindustria/Perfil_ocupacional_Maestro_Electrocontrol.pdf">Maestro Electrocontrol</a></p>
+                    <p style={{ marginBottom: 0 }}><a style={style.item4} target="_blank" href="http://competenciaslaboralescorma.cl/documentos_SG/perfiles/areaindustria/Perfil_ocupacional_Maestro_Mecanico.pdf">Maestro Mecánico</a></p>
+                    <p style={{ marginBottom: 0 }}><a style={style.item4} target="_blank" href="http://competenciaslaboralescorma.cl/documentos_SG/perfiles/areaindustria/Perfil_ocupacional_Operador_de_Maquinaria_de_Aserrio.pdf">Operador de Maquinaria Rodante en Industria Maderera</a></p>
+                    <p style={{ marginBottom: 0 }}><a style={style.item4} target="_blank" href="http://competenciaslaboralescorma.cl/documentos_SG/perfiles/areaindustria/Perfil_ocupacional_Supervisor_Electrocontrol.pdf">Supervisor Electrocontrol</a></p>
+                    <p style={{ marginBottom: 0 }}><a style={style.item4} target="_blank" href="http://competenciaslaboralescorma.cl/documentos_SG/perfiles/areaindustria/Perfil_ocupacional_Supervisor_Mecanico.pdf">Supervisor Mecánico</a></p>
                   </div>
                 </div>
               </div>
